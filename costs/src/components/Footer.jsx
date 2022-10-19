@@ -1,11 +1,30 @@
-import React from 'react'
+import React from 'react';
 
-const Footer = (props) => {
+//icons
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+
+//css
+import './Footer.css';
+
+const Footer = () => {
   return (
-    <footer>
-      <p>footer</p>
+    <footer className="footer">
+      <div className="container">
+        <ul>
+          <li>
+            <FaFacebook />
+          </li>
+          <li>
+            <FaInstagram />
+          </li>
+          <li>
+            <FaLinkedin />
+          </li>
+        </ul>
+        <p className='copy'><span>Costs</span> &copy; 2022</p>
+      </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

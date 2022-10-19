@@ -14,19 +14,21 @@ import Company from './components/pages/Company';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Container from './components/layout/Container';
+import Projects from './components/pages/Projects';
 
 const App = () => {
   return (
     <>
       <Header />
-      <Container customClass={'min-height'}>
+      <main className='container'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/new-project" element={<NewProject />} />
+          <Route path='/projects' element={<Projects />}/>
         </Routes>
-      </Container>
+      </main>
       <Footer />
     </>
   );
