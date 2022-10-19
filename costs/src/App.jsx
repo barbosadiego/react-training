@@ -13,7 +13,6 @@ import Company from './components/pages/Company';
 // components
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Container from './components/layout/Container';
 import Projects from './components/pages/Projects';
 
 const App = () => {

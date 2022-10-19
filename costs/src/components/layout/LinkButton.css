@@ -1,0 +1,11 @@
+.btn{
+  background-color: #222;
+  color: #fff;
+  padding: .5rem 1rem;
+  text-transform: capitalize;
+  transition: .3s;
+}
+
+.btn:hover{
+  color: #ffbb33;
+}
