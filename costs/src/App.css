@@ -1,0 +1,16 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+html, body, #root{
+  background-color: #efefef;
+  height: 100vh;
+}
