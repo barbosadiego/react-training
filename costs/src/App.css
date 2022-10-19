@@ -1,16 +1,36 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
 
-img{
+img {
   max-width: 100%;
   display: block;
 }
 
-html, body, #root{
+html,
+body,
+#root {
   background-color: #efefef;
   height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
 }
