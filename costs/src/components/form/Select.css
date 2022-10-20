@@ -1,0 +1,12 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.select select {
+  padding: 0.7rem;
+  border-radius: 0px;
+  border: none;
+  background-color: #fff;
+}
