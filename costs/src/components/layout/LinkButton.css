@@ -4,6 +4,7 @@
   padding: .5rem 1rem;
   text-transform: capitalize;
   transition: .3s;
+  display: inline-block;
 }
 
 .btn:hover{
