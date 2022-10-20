@@ -19,7 +19,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className='container'>
+      <main className='container main'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/company" element={<Company />} />

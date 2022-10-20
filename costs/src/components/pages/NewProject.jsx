@@ -23,9 +23,11 @@ const NewProject = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        // console.log(json);
         //redirect
-        navigate('/projects', { message: 'Projeto criado com sucesso!' });
+        navigate('/projects', {
+          state: { message: 'Projeto criado com sucesso!' },
+        });
       })
       .catch((error) => console.log(error));
   }

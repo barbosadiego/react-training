@@ -45,6 +45,11 @@ a {
   flex-wrap: wrap;
 }
 
+.main{
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
 .min-height {
   min-height: 75%;
 }
