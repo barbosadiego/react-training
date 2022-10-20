@@ -1,5 +1,17 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "name": "Teste",
+      "budget": "200",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 1
+    }
+  ],
   "categories": [
     {
       "id": 1,
@@ -11,7 +23,7 @@
     },
     {
       "id": 3,
-      "name": "Desing"
+      "name": "Design"
     },
     {
       "id": 4,
