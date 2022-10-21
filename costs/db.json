@@ -7,8 +7,21 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 50234,
+      "services": [
+        {
+          "name": "Vue.js",
+          "description": "update",
+          "cost": "234",
+          "id": "9748b970-2c34-4819-b415-c1814b2926bc"
+        },
+        {
+          "name": "Vue.js 3",
+          "description": "update",
+          "cost": "50000",
+          "id": "f21805f7-c94e-482b-bb98-c0968b9bf18e"
+        }
+      ],
       "id": 1
     }
   ],

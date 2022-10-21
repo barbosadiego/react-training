@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { parse, v4 as uuidv4 } from 'uuid';
 
 // router
 import { useParams } from 'react-router-dom';
@@ -10,6 +11,7 @@ import './ProjectPage.css';
 import Loading from '../layout/Loading';
 import ProjectForm from '../project/ProjectForm';
 import Message from '../layout/Message';
+import ServiceForm from '../services/ServiceForm';
 
 const ProjectPage = (props) => {
   const data = useParams();
@@ -36,6 +38,39 @@ const ProjectPage = (props) => {
     }, 500);
   }, [data.id]);
 
+  function createService() {
+    setMsg('');
+
+    const lastService = project.services[project.services.length - 1];
+    lastService.id = uuidv4();
+
+    const lastServiceCost = lastService.cost;
+    const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
+
+    if(newCost > parseFloat(project.budget)){
+      setMsg('Orçamento ultrapassado, verifique o valor do serviço.');
+      setType('error');
+      project.services.pop();
+      return false;
+    }
+
+    project.cost = newCost;
+
+    fetch(`http://localhost:5000/projects/${project.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(project),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json)
+      })
+      .catch((error) => console.log(error))
+    ;
+  }
+
   function toggleProjectForm() {
     setShowProjectForm((old) => !old);
   }
@@ -47,7 +82,7 @@ const ProjectPage = (props) => {
   function editPost(project) {
     setMsg('');
 
-    if(project.budget < project.cost){
+    if (project.budget < project.cost) {
       setMsg('O orçamento não pode ser menor que o custo do projeto!');
       setType('error');
       return false;
@@ -55,7 +90,7 @@ const ProjectPage = (props) => {
 
     fetch(`http://localhost:5000/projects/${project.id}`, {
       method: 'PATCH',
-      headers:{
+      headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(project),
@@ -67,15 +102,14 @@ const ProjectPage = (props) => {
         setMsg('Projeto atualizado!');
         setType('sucess');
       })
-      .catch((error) => console.log(error))
-    ;
+      .catch((error) => console.log(error));
   }
 
   return (
     <div className="project-container">
       {project.name ? (
         <div className="project-details">
-          {msg && <Message type={type} msg={msg}/>}
+          {msg && <Message type={type} msg={msg} />}
           <div className="details-container">
             <h1>Projeto: {project.name}</h1>
             <button className="btn alt-btn" onClick={toggleProjectForm}>
@@ -105,13 +139,19 @@ const ProjectPage = (props) => {
               </div>
             )}
           </div>
-          <div className='service-form-container'>
+          <div className="service-form-container">
             <h2>Adicione um serviço:</h2>
-            <button className='btn' onClick={toggleServiceForm}>
+            <button className="btn" onClick={toggleServiceForm}>
               {!showServiceForm ? 'Adicionar serviço' : 'Fechar'}
             </button>
           </div>
-          {showServiceForm && <div className='project-form'>formulário</div>}
+          {showServiceForm && (
+            <ServiceForm
+              handleSubmit={createService}
+              textBtn="Adicionar Serviço"
+              projectData={project}
+            />
+          )}
           <h2>Serviços</h2>
           <div>
             <p>itens serviços</p>
