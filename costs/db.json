@@ -1,8 +1,8 @@
 {
   "projects": [
     {
-      "name": "Teste",
-      "budget": "1234",
+      "name": "Teste de Front end",
+      "budget": "5000",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
