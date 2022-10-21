@@ -12,10 +12,12 @@ import Loading from '../layout/Loading';
 import ProjectForm from '../project/ProjectForm';
 import Message from '../layout/Message';
 import ServiceForm from '../services/ServiceForm';
+import ServiceCard from '../services/ServiceCard';
 
 const ProjectPage = (props) => {
   const data = useParams();
   const [project, setProject] = useState([]);
+  const [services, setServices] = useState([]);
   const [showProjectForm, setShowProjectForm] = useState(false);
   const [showServiceForm, setShowServiceForm] = useState(false);
   const [msg, setMsg] = useState();
@@ -33,6 +35,7 @@ const ProjectPage = (props) => {
         .then((res) => res.json())
         .then((json) => {
           setProject(json);
+          setServices(json.services);
         })
         .catch((error) => console.log(error));
     }, 500);
@@ -47,7 +50,7 @@ const ProjectPage = (props) => {
     const lastServiceCost = lastService.cost;
     const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
 
-    if(newCost > parseFloat(project.budget)){
+    if (newCost > parseFloat(project.budget)) {
       setMsg('Orçamento ultrapassado, verifique o valor do serviço.');
       setType('error');
       project.services.pop();
@@ -65,10 +68,13 @@ const ProjectPage = (props) => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json)
+        setShowServiceForm(false)
       })
-      .catch((error) => console.log(error))
-    ;
+      .catch((error) => console.log(error));
+  }
+
+  function removeService(){
+
   }
 
   function toggleProjectForm() {
@@ -153,9 +159,25 @@ const ProjectPage = (props) => {
             />
           )}
           <h2>Serviços</h2>
-          <div>
-            <p>itens serviços</p>
-          </div>
+          {services.length > 0 && (
+            <div className="container start">
+              {services.map((service) => (
+                <ServiceCard
+                  id={service.id}
+                  name={service.name}
+                  cost={service.cost}
+                  description={service.description}
+                  key={service.id}
+                  handleRemove={removeService}
+                />
+              ))}
+            </div>
+          )}
+          {services.length === 0 && (
+            <div>
+              <p>Não há serviços a exibir</p>
+            </div>
+          )}
         </div>
       ) : (
         <Loading />
