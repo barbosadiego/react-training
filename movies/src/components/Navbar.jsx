@@ -1,21 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 // css
 import './Navbar.scss';
 
 // icons
-import { BiCameraMovie, BiSearchAlt2 } from 'react-icons/bi'
+import { BiCameraMovie, BiSearchAlt2 } from 'react-icons/bi';
 
 const Navbar = () => {
+  const [search, setSearch] = useState('');
+  const navigate = useNavigate();
+
+  function handleSubmit(e){
+    e.preventDefault();
+    if(!search) return
+
+    navigate(`/search?q=${search}`);
+    setSearch('');
+  }
+
   return (
     <nav className="navbar">
       <h2>
-        <Link to="/"> <BiCameraMovie /> MoviesLib</Link>
+        <Link to="/">
+          {' '}
+          <BiCameraMovie /> MoviesLib
+        </Link>
       </h2>
-      <form>
-        <input type="text" placeholder='Busque um filme' />
-        <button className='btn' type='submit'>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Busque um filme"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
+        <button className="btn" type="submit">
           <BiSearchAlt2 />
         </button>
       </form>

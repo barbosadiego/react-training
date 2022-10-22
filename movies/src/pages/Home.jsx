@@ -9,7 +9,7 @@ import MovieCard from '../components/MovieCard';
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-const Home = (props) => {
+const Home = () => {
   const [topMovies, setTopMovies] = useState([]);
 
   const getTopRatedMovies = async (url) => {

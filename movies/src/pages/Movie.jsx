@@ -3,7 +3,7 @@ import React from 'react'
 // css
 import './MovieGrid.scss';
 
-const Movie = (props) => {
+const Movie = () => {
   return (
     <div>
       <h1>movie</h1>
