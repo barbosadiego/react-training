@@ -1,5 +1,8 @@
 import React from 'react'
 
+// css
+import './MovieGrid.scss';
+
 const Movie = (props) => {
   return (
     <div>
