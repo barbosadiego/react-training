@@ -31,7 +31,6 @@ const Projects = () => {
       })
         .then((res) => res.json())
         .then((json) => {
-          console.log(json);
           setProjects(json);
           setRemoveLoading(true);
         })

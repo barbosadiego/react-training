@@ -7,14 +7,8 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 53234,
+      "cost": 51000,
       "services": [
-        {
-          "name": "Vue.js",
-          "description": "update",
-          "cost": "234",
-          "id": "9748b970-2c34-4819-b415-c1814b2926bc"
-        },
         {
           "name": "Vue.js 3",
           "description": "update",
@@ -26,12 +20,6 @@
           "description": "Formulario email",
           "cost": "1000",
           "id": "dd0d0dfb-172f-4a51-a688-1734b323c423"
-        },
-        {
-          "name": "Dev Flutter",
-          "description": "Desenvolver o flutter",
-          "cost": "2000",
-          "id": "122df7b0-467f-4e9e-8b5a-e29d2f6d2ead"
         }
       ],
       "id": 1
