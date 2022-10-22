@@ -1,13 +1,19 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 // css
-import './App.scss'
+import './App.scss';
+
+// components
+import Navbar from './components/Navbar.jsx';
 
 const App = () => {
   return (
-    <>
-      <h1>hello world!</h1>
-    </>
+    <div className="App">
+      <Navbar />
+      <h2>Movies Lib</h2>
+      <Outlet />
+    </div>
   );
 };
 
