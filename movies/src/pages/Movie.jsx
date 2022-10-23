@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 // css
 import './MovieGrid.scss';
+import './Movie.scss';
 
 // components
 import MovieCard from '../components/MovieCard';
@@ -37,7 +38,7 @@ const Movie = () => {
   }
   
   return (
-    <section>
+    <section className='movie-page'>
       {movie && (
         <>
           <MovieCard movie={movie} showLink={false} />
@@ -64,7 +65,7 @@ const Movie = () => {
             <h3>
               <BsFillFileEarmarkTextFill /> Descrição:
             </h3>
-            <p>{movie.overview}</p>
+            <p className='description'>{movie.overview}</p>
           </div>
         </>
       )}
