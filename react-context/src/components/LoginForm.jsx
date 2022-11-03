@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../context/userContext';
 
-const LoginForm = ({ handleName }) => {
+const LoginForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const { handleName } = useContext(UserContext);
 
   function handleSubmit(e) {
     e.preventDefault();
-    handleName(name);
-    setName('');
-    setEmail('');
+    handleName({ name, email });
+    // console.log({ name, email });
+    // setName('');
+    // setEmail('');
   }
 
   return (

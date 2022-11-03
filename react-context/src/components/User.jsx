@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../context/userContext';
 
-const User = ({ user }) => {
+const User = () => {
+  const { name } = useContext(UserContext);
+
   return (
     <>
-      <h1>{user}</h1>
+      <h1>Olá, {name}</h1>
     </>
   );
 };
