@@ -1,0 +1,25 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+}
