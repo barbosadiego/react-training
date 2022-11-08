@@ -12,7 +12,7 @@ export const useApi = () => ({
   },
 
   signin: async (email, password) => {
-    const response = await api.post('/signin', { email, senha });
+    const response = await api.post('/signin', { email, password });
     return response.data;
   },
 
