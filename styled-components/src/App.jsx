@@ -1,10 +1,10 @@
-import React from 'react';
+import { Container } from './components/styles/Container.styled';
 
 const App = () => {
   return (
-    <div>
+    <Container>
       <h1>hello world!</h1>
-    </div>
+    </Container>
   );
 };
 
