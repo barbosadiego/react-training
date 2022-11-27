@@ -21,6 +21,11 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
   }
 
+  ul,
+  li{
+    list-style: none;
+  }
+
   img {
     max-width: 100%;
   }
